@@ -1,25 +1,24 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import ModalButton from './components/ModalMap/ModalButton';
+import ModalMap from './components/ModalMap/ModalMap';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   const [isModalVisible, setIsModalVisible] = useState(false);
+
+   const showModal = () => {
+      setIsModalVisible(true);
+   };
+   return (
+      <div className="App">
+         <h1>Test</h1>
+         <ModalButton showModal={showModal} />
+         <ModalMap
+            isModalVisible={isModalVisible}
+            setIsModalVisible={setIsModalVisible}
+         />
+      </div>
+   );
 }
 
 export default App;
